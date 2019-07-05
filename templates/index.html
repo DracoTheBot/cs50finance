@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Shares</th>
+          <th>Price</th>
+          <th>TOTAL</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="4"></td>
+          <td>{{ grandtotal }}</td>
+        </tr>
+      </tfoot>
+      <tbody id = "list">
+      {% for i in range(rowCount[0]["count(*)"]) %}
+        <tr>
+        {% for j in range(5) %}
+
+          <td>
+            {{ twod_list[i][j] }}
+          </td>
+        {% endfor %}
+        </tr>
+      {% endfor %}
+        <tr>
+          <td colspan="4" class = "text-left">CASH</td>
+          <td>{{ cash }}</td>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}
